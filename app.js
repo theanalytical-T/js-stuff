@@ -43,11 +43,11 @@ if (age < 6) {
 }
 
 //Practicing for loops
-let largeCountries = ["China", "India", "USA", "Indonesia", "Pakistan"]
-console.log("The 5 largest countries in the world:")
-for (let i = 0; i < largeCountries.length; i++) {
-    console.log("- " + largeCountries[i])
-}
+// let largeCountries = ["China", "India", "USA", "Indonesia", "Pakistan"]
+// console.log("The 5 largest countries in the world:")
+// for (let i = 0; i < largeCountries.length; i++) {
+//     console.log("- " + largeCountries[i])
+// }
 
 //Practicing unshift, shift, pop, push
 let largeCountries = ["Tuvalu", "India", "USA", "Indonesia", "Monaco"]
@@ -82,3 +82,26 @@ function getHand() {
 }
 
 console.log(getHand())
+
+
+//Newer version of how to run a function when a button is clicked
+
+let inputBtn = document.getElementById("input-btn")
+
+inputBtn.addEventListener("click", function () {
+    console.log("Button clicked from addEventListener")
+})
+
+//If possible, use const. If not, use let.
+const basePrice = 260
+const discount = 120
+let shippingCost = 12
+let shippingTime = "5-7 days"
+
+shippingCost = 15
+shippingTime = "7-14 days"
+
+let totalPurchase = basePrice + shippingCost / discount
+
+console.log("Total Estimate: $" + totalPurchase + ". Shipping in " + shippingTime)
+
