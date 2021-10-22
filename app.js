@@ -85,12 +85,11 @@ console.log(getHand())
 
 
 //Newer version of how to run a function when a button is clicked
+// let inputBtn = document.getElementById("input-btn")
 
-let inputBtn = document.getElementById("input-btn")
-
-inputBtn.addEventListener("click", function () {
-    console.log("Button clicked from addEventListener")
-})
+// inputBtn.addEventListener("click", function () {
+//     console.log("Button clicked from addEventListener")
+// })
 
 //If possible, use const. If not, use let.
 const basePrice = 260
@@ -105,3 +104,58 @@ let totalPurchase = basePrice + shippingCost / discount
 
 console.log("Total Estimate: $" + totalPurchase + ". Shipping in " + shippingTime)
 
+let mySaves = []
+
+for (let i = 0; i < mySaves.length; i++) {
+    //     //The += allows the loop to take the previous value and concatenate it with the current array the user is looking at
+    ulEl.innerHTML += "<li>" + mySaves[i] + "</li>"
+}
+
+// How to use .innerHTML to render a Buy! button inside a div container
+const container = document.getElementById("container")
+container.innerHTML = "<button onclick='buy()'>Buy!</button>"
+my first solution-- > container.innerHTML = "<button>" "Buy!" "</button>"
+
+// When clicked, render a paragraph under the button (in the container)
+// that says "Thank you for buying!"
+
+function buy() {
+    // Use += because this signifies it ADDING to the DOM instead of replacing the previous element
+    container.innerHTML += "<p>Thank you for buying!</p>"
+}
+
+//appending means adding something at the end of the document
+//createElement() creates an html element in the DOM
+
+for (let i = 0; i < myLeads.length; i++) {
+    ulEl.innerHTML += "<li>" + myLeads[i] + "</li>"
+    // create element
+    // set text content
+    // append to ul
+    const li = document.createElement("li")
+    li.textContent = myLeads[i]
+    ulEl.append(li)
+}
+
+// let listItems = ""
+// for (let i = 0; i < myLeads.length; i++) {
+//     listItems = myLeads[i]
+//     li = document.createElement("li")
+//     li.textContent = listItems
+//     ulEl.append(li)
+// }
+
+function renderLeads() {
+    let listItems = ""
+    for (let i = 0; i < myLeads.length; i++) {
+        // listItems += "<li><a target='_blank' href='" + myLeads[i] + "'>" + myLeads[i] + "</a></li>"
+        listItems += `
+            <li>
+                <a target='_blank' href='${myLeads[i]}'>
+                    ${myLeads[i]}
+                </a>
+            </li>
+        `
+    }
+    ulEl.innerHTML = listItems
+}
