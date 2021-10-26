@@ -159,3 +159,22 @@ function renderLeads() {
     }
     ulEl.innerHTML = listItems
 }
+
+// truthy
+// falsy
+
+//These are falsy values
+// false
+// 0
+// ""
+// null --> How the developer signalizes emptiness
+// undefined --> How JavaScript signalizes emptiness
+// NaN
+
+// Save a value to localStorage
+// Delete your code and refresh the page
+// Fetch your value from localStorage and log it out
+
+// localStorage.setItem("myCredits", "100")
+let myCredits = localStorage.getItem("myCredits")
+console.log(myCredits)
