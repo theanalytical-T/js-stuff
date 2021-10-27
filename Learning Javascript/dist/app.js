@@ -124,3 +124,128 @@ function buy() {
     container.innerHTML += "<p>Thank you for buying!</p>"
 }
 
+//appending means adding something at the end of the document
+//createElement() creates an html element in the DOM
+
+for (let i = 0; i < myLeads.length; i++) {
+    ulEl.innerHTML += "<li>" + myLeads[i] + "</li>"
+    // create element
+    // set text content
+    // append to ul
+    const li = document.createElement("li")
+    li.textContent = myLeads[i]
+    ulEl.append(li)
+}
+
+// let listItems = ""
+// for (let i = 0; i < myLeads.length; i++) {
+//     listItems = myLeads[i]
+//     li = document.createElement("li")
+//     li.textContent = listItems
+//     ulEl.append(li)
+// }
+
+function renderLeads() {
+    let listItems = ""
+    for (let i = 0; i < myLeads.length; i++) {
+        // listItems += "<li><a target='_blank' href='" + myLeads[i] + "'>" + myLeads[i] + "</a></li>"
+        listItems += `
+            <li>
+                <a target='_blank' href='${myLeads[i]}'>
+                    ${myLeads[i]}
+                </a>
+            </li>
+        `
+    }
+    ulEl.innerHTML = listItems
+}
+
+// truthy
+// falsy
+
+//These are falsy values
+// false
+// 0
+// ""
+// null --> How the developer signalizes emptiness
+// undefined --> How JavaScript signalizes emptiness
+// NaN
+
+// Save a value to localStorage
+// Delete your code and refresh the page
+// Fetch your value from localStorage and log it out
+
+// localStorage.setItem("myCredits", "100")
+let myCredits = localStorage.getItem("myCredits")
+console.log(myCredits)
+
+
+// Fetch the button from the DOM, store it in a variable
+// Use addEventListener() to listen for button clicks
+// Log Jane's score when the button is clicked (via data)
+
+let data = [
+    {
+        player: "Jane",
+        score: 52
+    },
+    {
+        player: "Mark",
+        score: 41
+    }
+]
+
+const janeBtn = document.getElementById("jane-btn")
+janeBtn.addEventListener("click", function () {
+    console.log(data[0].score)
+})
+
+// The generateSentence(desc, arr) takes two parameterer: a description and an array.
+// It should return a string based upon the description and array.
+
+// Example 1: if you pass in "largest countries",and ["China", "India", "USA"],
+// it should return the string: "The 3 largest countries are China, India, USA"
+
+// Example 2: If you pass in "best fruits" and ["Apples", "Bananas"], it should return:
+// "The 2 best fruits are Apples, Bananas"
+
+// Use both a for loop and a template string to solve the challenge
+
+function generateSentence(desc, arr) {
+    let baseString = `${arr.length} ${desc} are `
+    const lastIndex = arr.length - 1
+    for (let i = 0; i < arr.legnth; i++) {
+        if (i === lastIndex) {
+            baseString += arr[i]
+        } else {
+            baseString += arr[i] + ", "
+        }
+    }
+    return baseString
+}
+
+const sentence = generateSentence("highest mountains", ["Mount Everest", "K2"])
+console.log(sentence)
+const secondSentence = generateSentence("best fruits", ["oranges", "mangoes", "kiwi"])
+console.log(secondSentence)
+
+// Create a function that renders the three team images
+// Use a for loop, template strings (``), plus equals (+=)
+// .innerHTML to solve the challenge.
+
+const imgs = [
+    "images/hip1.jpg",
+    "images/hip2.jpg",
+    "images/hip3.jpg"
+]
+const secondContainer = document.getElementById("second-container")
+
+function renderImages() {
+    let imgsDOM = ""
+    for (let i = 0; i < imgs.length; i++) {
+        imgsDOM += `<img alt="Company employees" class="team-img" src="${imgs[i]}">`
+    }
+    secondContainer.innerHTML = imgsDOM
+}
+
+renderImages()
